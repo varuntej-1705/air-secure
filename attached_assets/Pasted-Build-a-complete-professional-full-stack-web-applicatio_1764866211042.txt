@@ -1,0 +1,237 @@
+Build a complete, professional full-stack web application for my Data Science project titled:
+“Air Quality Insights, Weather Monitoring & Chatbot for Indian Cities.”
+
+The web app should:
+
+Display air quality data (AQI + pollutants) for all available cities in India.
+
+Display current weather data for those cities.
+
+Provide an AI chatbot that answers questions about AQI, weather, city-wise comparison, trends, and health suggestions.
+
+Allow searching, filtering and visualizing AQI & weather data for any Indian city.
+
+Use API keys that I will provide later, not hardcoded.
+
+🔐 API KEYS & CONFIG (IMPORTANT)
+
+I will give the API keys later.
+
+You must:
+
+Create a config or environment setup (like .env or config/keys.env).
+
+Add placeholders there:
+
+AQI_API_KEY=
+WEATHER_API_KEY=
+AI_API_KEY=
+
+
+The app must read these from environment variables, NOT hardcode them.
+
+All backend calls to AQI, weather and AI/chat must use these environment variables.
+
+🌍 CORE REQUIREMENTS – AQI + WEATHER
+
+All India City List & Selection
+
+Fetch or maintain a list of Indian cities supported by the AQI + weather APIs.
+
+Provide a search box and dropdown/filter to select any city.
+
+Optionally allow state-wise filtering (e.g., Maharashtra, Tamil Nadu).
+
+AQI Data Display
+
+For the selected city, show:
+
+AQI value
+
+AQI category (Good / Moderate / Unhealthy / Very Unhealthy / Hazardous)
+
+Main pollutant (e.g., PM2.5, PM10, NO₂, SO₂, CO, O₃)
+
+Time of measurement
+
+Also show a table or list view of AQI data for multiple cities at once (e.g., top 10 most polluted cities right now).
+
+Weather Data Display
+
+For the same city, show:
+
+Temperature (°C)
+
+Humidity (%)
+
+Wind speed
+
+Basic weather description (Clear, Cloudy, Rain, etc.).
+
+Show this side-by-side with AQI in a city details panel.
+
+Maps / Overview (optional but good)
+
+Optional: simple map or list view showing multiple cities with their AQI levels and basic weather.
+
+📊 DASHBOARD & DATA VISUALIZATION
+
+Create an interactive dashboard with:
+
+City-wise comparison of AQI for multiple cities (bar chart or table).
+
+Time-series chart for a selected city (AQI over hours/days if API or dataset supports it).
+
+Pollutant-level comparison (PM2.5 vs PM10 vs NO₂ etc.) for a selected city.
+
+Combined AQI + Weather charts, e.g., AQI vs temperature/humidity to visualize relationships.
+
+Use any of:
+
+Plotly / Chart.js / ECharts / Matplotlib (if server-side images)
+
+Ensure charts are interactive where possible.
+
+🔮 (Optional but Good) PREDICTION FEATURE
+
+Add a simple AQI prediction component for a selected city (e.g., next hour or next day) using a lightweight model or heuristic.
+
+Show predicted AQI and category, with a short text like “AQI likely to improve/worsen”.
+
+If prediction is too complex, you can keep it simple (even a stub with explanation text based on trends).
+
+🤖 AI CHATBOT REQUIREMENTS
+
+Integrate an AI chatbot using AI_API_KEY (e.g., Gemini / OpenAI – generic, code should treat it as an external AI text API).
+
+The chatbot UI should be a floating chat button (bottom right) that opens a chat window.
+
+The chatbot backend endpoint (e.g., /api/chat) must:
+
+Accept user questions.
+
+Fetch relevant data from the app (AQI & weather for cities, insights, top polluted cities, etc.).
+
+Call the AI model with this context + the user question.
+
+Return a friendly, easy-English answer.
+
+The chatbot must be able to answer things like:
+
+“What is the air quality in Delhi right now?”
+
+“Which city in India is most polluted today?”
+
+“Is it safe to go for a walk in Bengaluru now?”
+
+“Compare air quality between Mumbai and Chennai.”
+
+“Explain what AQI means in simple words.”
+
+The AI API key must also be read from environment variables, not hardcoded.
+
+🧑‍💻 BACKEND REQUIREMENTS
+
+Build a backend (Node/Express or Python/FastAPI/Flask) that exposes REST APIs like:
+
+GET /api/cities → list of Indian cities supported by AQI/Weather APIs.
+
+GET /api/aqi?city=CityName → returns AQI + pollutant breakdown for that city.
+
+GET /api/weather?city=CityName → returns weather data for that city.
+
+GET /api/overview → returns AQI + weather summary for multiple cities (e.g., top N polluted, cleanest, etc.).
+
+POST /api/chat → handles chatbot queries using AI_API_KEY and internal data.
+
+Backend tasks:
+
+Call AQI API using AQI_API_KEY.
+
+Call Weather API using WEATHER_API_KEY.
+
+Optionally cache responses for a short time to reduce API calls.
+
+Handle errors gracefully (no crash if a city fails).
+
+🖥️ FRONTEND REQUIREMENTS
+
+Use a modern frontend (React / Next.js / or similar):
+
+Pages / sections:
+
+Home / Overview
+
+Project title & description.
+
+High-level stats: “Most polluted city now”, “Best city now”, etc.
+
+All Cities AQI & Weather
+
+Table/grid view listing Indian cities with columns: City, AQI, Category, Temp, Weather.
+
+Search & filter bar (e.g., by city, AQI range, state).
+
+City Details Page / Panel
+
+On selecting a city, show:
+
+AQI, category, main pollutant
+
+Weather summary
+
+Charts (time trend if possible)
+
+Brief text explanation.
+
+Dashboard / Analytics
+
+Charts for:
+
+Top polluted cities
+
+Cleanest cities
+
+Pollutant comparisons
+
+AQI vs Weather.
+
+Chatbot
+
+Floating chat widget visible on all pages.
+
+Conversation history view inside the chat window.
+
+UI style:
+
+Clean, modern, and professional.
+
+Use cards, pastel colors, icons for pollution/weather.
+
+Fully responsive (works on mobile and desktop).
+
+🧱 GENERAL TECH SPECS
+
+Frontend: React / Next.js (or similar SPA framework).
+
+Backend: Node.js (Express) or Python (FastAPI/Flask).
+
+Data format: JSON for all API responses.
+
+Environment config: use .env or config folder for keys.
+
+No hardcoded secrets in code.
+
+✅ FINAL EXPECTATION
+
+Generate a complete, working web app that:
+
+Shows AQI and weather for all Indian cities supported by the APIs.
+
+Provides search, filter, and visual dashboards.
+
+Has an AI chatbot that uses the app’s AQI & weather data to answer questions.
+
+Reads all keys from environment variables (AQI_API_KEY, WEATHER_API_KEY, AI_API_KEY).
+
+Looks visually clean and is easy for users to understand.

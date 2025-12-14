@@ -1,0 +1,33 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# Python files (excluded from repo)
+*.py
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+requirements.txt
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Build artifacts
+build/
+*.egg-info/
